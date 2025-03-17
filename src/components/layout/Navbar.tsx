@@ -4,10 +4,12 @@ import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, ShoppingCart } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
+import { getCartItemCount } from '@/lib/data';
 
-const Navbar = ({ cartItemCount = 0 }: { cartItemCount?: number }) => {
+const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [cartItemCount, setCartItemCount] = useState(0);
   const location = useLocation();
 
   useEffect(() => {
@@ -22,6 +24,18 @@ const Navbar = ({ cartItemCount = 0 }: { cartItemCount?: number }) => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  useEffect(() => {
+    // Update cart count when location changes
+    setCartItemCount(getCartItemCount());
+    
+    // Set up interval to check cart count
+    const interval = setInterval(() => {
+      setCartItemCount(getCartItemCount());
+    }, 1000);
+    
+    return () => clearInterval(interval);
+  }, [location]);
 
   const navItems = [
     { name: 'Accueil', path: '/' },
