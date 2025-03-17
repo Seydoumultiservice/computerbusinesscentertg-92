@@ -11,6 +11,7 @@ import NotFound from "./pages/NotFound";
 import { Cart } from "./components/shop/Cart"; 
 import AdminDashboard from "./pages/Admin";
 import AboutUs from "./pages/AboutUs";
+import Chatbot from "./components/chatbot/Chatbot";
 
 const queryClient = new QueryClient();
 
@@ -30,6 +31,7 @@ const App = () => (
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <Chatbot />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
