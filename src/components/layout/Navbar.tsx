@@ -44,6 +44,7 @@ const Navbar = ({ cartItemCount: initialCartCount }: NavbarProps = {}) => {
   const navItems = [
     { name: 'Accueil', path: '/' },
     { name: 'Boutique', path: '/shop' },
+    { name: 'Qui sommes-nous', path: '/about' },
     { name: 'Contact', path: '/contact' },
   ];
 
