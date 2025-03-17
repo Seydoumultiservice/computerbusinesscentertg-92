@@ -15,8 +15,8 @@ import {
   PlusCircle, 
   Trash2
 } from 'lucide-react';
-import { getOrders, getAllProducts, getTestimonials, updateOrderStatus, Product } from '@/lib/data';
-import { Order, Testimonial } from '@/lib/types';
+import { getOrders, getAllProducts, getTestimonials, updateOrderStatus } from '@/lib/data';
+import { Order, Testimonial, Product } from '@/lib/types';
 import { AdminProductsList } from "@/components/admin/AdminProductsList";
 import { AdminOrdersList } from "@/components/admin/AdminOrdersList";
 import { AdminTestimonialsList } from "@/components/admin/AdminTestimonialsList";

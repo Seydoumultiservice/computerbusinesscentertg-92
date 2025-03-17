@@ -6,10 +6,14 @@ import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 import { getCartItemCount } from '@/lib/data';
 
-const Navbar = () => {
+interface NavbarProps {
+  cartItemCount?: number;
+}
+
+const Navbar = ({ cartItemCount: initialCartCount }: NavbarProps = {}) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [cartItemCount, setCartItemCount] = useState(0);
+  const [cartItemCount, setCartItemCount] = useState(initialCartCount || 0);
   const location = useLocation();
 
   useEffect(() => {
